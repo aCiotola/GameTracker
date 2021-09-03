@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameTracker.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace GameTracker
         public MainWindow()
         {
             InitializeComponent();
+            RestSharpUtil rs = new RestSharpUtil();
         }
     }
 }

@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="Game Tracker" Height="600" Width="800">
+    <DockPanel Background="#2B2A2F">
+        <Grid DockPanel.Dock="Left" Width="100" Background="Gray">
+            <ScrollViewer>
+                
+            </ScrollViewer>
+        </Grid>
+        <Grid DockPanel.Dock="Right">
+            <TextBox x:Name="searchBox" Text="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" TextWrapping="Wrap" Width="120"/>
+            <ComboBox x:Name="sortBox" Text="Sort By" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
+            <ComboBox x:Name="limitBox" Text="Show 50" HorizontalAlignment="left" VerticalAlignment="Top" Margin="400,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
+        </Grid>
+        
+    </DockPanel>
 </Window>
