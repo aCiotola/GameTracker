@@ -1,9 +1,5 @@
-﻿using GameTracker.Classes;
-using GameTracker.Responses;
-using Newtonsoft.Json;
-using RestSharp;
+﻿using RestSharp;
 using System.IO;
-using System.Windows;
 
 namespace GameTracker.Utilities
 {
@@ -21,8 +17,6 @@ namespace GameTracker.Utilities
         public RestSharpUtil() 
         {
             SetAPIKeys();
-            Platform[] platforms = GetAllPlatforms();
-            MessageBox.Show(platforms[1].ToString());
         }
 
         /// <summary>
@@ -40,7 +34,7 @@ namespace GameTracker.Utilities
         /// </summary>
         /// <param name="requestLink"></param>
         /// <returns></returns>
-        private IRestResponse CreateRequest(string requestLink) 
+        public IRestResponse CreateRequest(string requestLink) 
         {
             var client = new RestClient(requestLink);
             var request = new RestRequest(Method.GET);
@@ -52,16 +46,12 @@ namespace GameTracker.Utilities
         }
 
         /// <summary>
-        /// Method responsible for getting a detailed list of all platforms.
+        /// Method responsible for returning the API key used in requests.
         /// </summary>
         /// <returns></returns>
-        public Platform[] GetAllPlatforms()
+        public string GetKey()
         {
-            IRestResponse response = CreateRequest("https://rawg-video-games-database.p.rapidapi.com/platforms?key=" + APIKEY);
-            JsonPlatform json = JsonConvert.DeserializeObject<JsonPlatform>(response.Content);
-            return json.GetResults();
+            return APIKEY;
         }
-
-
     }
 }

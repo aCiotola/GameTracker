@@ -17,6 +17,7 @@
             <TextBox x:Name="searchBox" Text="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" TextWrapping="Wrap" Width="120"/>
             <ComboBox x:Name="sortBox" Text="Sort By" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
             <ComboBox x:Name="limitBox" Text="Show 50" HorizontalAlignment="left" VerticalAlignment="Top" Margin="400,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
+            <Image x:Name="gamePic" HorizontalAlignment="Left" Height="100" Margin="217,181,0,0" VerticalAlignment="Top" Width="100"/>
         </Grid>
         
     </DockPanel>
