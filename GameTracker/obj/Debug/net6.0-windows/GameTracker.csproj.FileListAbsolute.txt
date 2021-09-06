@@ -29,7 +29,6 @@ C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\bin\Debug\net6.0-windows
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\bin\Debug\net6.0-windows\GameTracker.pdb
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\bin\Debug\net6.0-windows\RestSharp.dll
-C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.csproj.AssemblyReference.cache
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker_MarkupCompile.cache
@@ -44,3 +43,4 @@ C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\ref\GameTracker.dll
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.pdb
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.genruntimeconfig.cache
+C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.csproj.AssemblyReference.cache
