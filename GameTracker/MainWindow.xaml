@@ -10,14 +10,16 @@
     <DockPanel Background="#2B2A2F">
         <Grid DockPanel.Dock="Left" Width="100" Background="Gray">
             <ScrollViewer>
-                
+
             </ScrollViewer>
         </Grid>
         <Grid DockPanel.Dock="Right">
             <TextBox x:Name="searchBox" Text="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" TextWrapping="Wrap" Width="120"/>
             <ComboBox x:Name="sortBox" Text="Sort By" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
             <ComboBox x:Name="limitBox" Text="Show 50" HorizontalAlignment="left" VerticalAlignment="Top" Margin="400,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
+            <Image x:Name="gamePic" HorizontalAlignment="Left" Height="244" Margin="375,323,0,0" VerticalAlignment="Top" Width="278"/>
+            <Image x:Name="gamePic2" HorizontalAlignment="Left" Height="254" Margin="29,56,0,0" VerticalAlignment="Top" Width="296"/>
         </Grid>
-        
+
     </DockPanel>
 </Window>

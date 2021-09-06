@@ -1,30 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using RestSharp;
-using System.Text.Json;
-using RestSharp.Authenticators;
+﻿using RestSharp;
+using System.IO;
 
 namespace GameTracker.Utilities
 {
     class RestSharpUtil
     {
-        public RestSharpUtil() {
+        private string rapidHost = "x-rapidapi-host";
+        private string hostSite = "rawg-video-games-database.p.rapidapi.com";
+        private string rapidKey = "x-rapidapi-key";
+        private string keySite;
+        private string APIKEY;
 
-            var client = new RestClient("https://rawg-video-games-database.p.rapidapi.com/platforms/1?key=db013a96fb7c45cb9b012e6a625d618e");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("x-rapidapi-host", "rawg-video-games-database.p.rapidapi.com");
-            request.AddHeader("x-rapidapi-key", "7e40c52d95mshfe4b8e96d2705a8p1e477djsnfedab9b3a5a9");
-            IRestResponse response = client.Execute(request);
-
-            MessageBox.Show(response.Content);
-
-            //MAKE CLASS WHICH TAKES ALL JSON VALUES
+        /// <summary>
+        /// No parameter constructor.
+        /// </summary>
+        public RestSharpUtil() 
+        {
+            SetAPIKeys();
         }
 
+        /// <summary>
+        /// Method rsponsible for receiving the API keys from a file (so it isn't visible online)
+        /// </summary>
+        private void SetAPIKeys()
+        {
+            string[] lines = File.ReadAllLines(@"..\..\..\Utilities\keys.txt");
+            keySite = lines[0].Trim();
+            APIKEY = lines[1].Trim();   
+        }
 
+        /// <summary>
+        /// Method responsible for creating a request and providing the results depending on the link given.
+        /// </summary>
+        /// <param name="requestLink"></param>
+        /// <returns></returns>
+        public IRestResponse CreateRequest(string requestLink) 
+        {
+            var client = new RestClient(requestLink);
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(rapidHost, hostSite);
+            request.AddHeader(rapidKey, keySite);
+            IRestResponse response = client.Execute(request);
+
+            return response;
+        }
+
+        /// <summary>
+        /// Method responsible for returning the API key used in requests.
+        /// </summary>
+        /// <returns></returns>
+        public string GetKey()
+        {
+            return APIKEY;
+        }
     }
 }
