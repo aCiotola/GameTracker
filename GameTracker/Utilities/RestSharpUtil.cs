@@ -9,7 +9,7 @@ namespace GameTracker.Utilities
         private string hostSite = "rawg-video-games-database.p.rapidapi.com";
         private string rapidKey = "x-rapidapi-key";
         private string keySite;
-        private string APIKEY;
+        public string APIKEY { get; set; }
 
         /// <summary>
         /// No parameter constructor.
@@ -43,15 +43,6 @@ namespace GameTracker.Utilities
             IRestResponse response = client.Execute(request);
 
             return response;
-        }
-
-        /// <summary>
-        /// Method responsible for returning the API key used in requests.
-        /// </summary>
-        /// <returns></returns>
-        public string GetKey()
-        {
-            return APIKEY;
         }
     }
 }

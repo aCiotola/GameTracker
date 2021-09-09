@@ -20,7 +20,7 @@ namespace GameTracker.Requests
         /// </summary>
         public PlatformRequest()
         {
-            APIKEY = util.GetKey();
+            APIKEY = util.APIKEY;
             MessageBox.Show(GetAllPlatforms()[1].ToString());
             MessageBox.Show(GetPlatformDetails(8).ToString());
         }

@@ -3,23 +3,58 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GameTracker"
+        xmlns:local="clr-namespace:GameTracker" 
+        xmlns:vh="clr-namespace:GameTracker.Utilities"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        Title="Game Tracker" Height="600" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Game Tracker" Height="768" Width="1024">
+    <Window.Resources>
+        <vh:ImageConverter x:Key="ImageConverter"/>
+        <Style TargetType="DataGridCell">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
     <DockPanel Background="#2B2A2F">
-        <Grid DockPanel.Dock="Left" Width="100" Background="Gray">
-            <ScrollViewer>
-
-            </ScrollViewer>
-        </Grid>
+        <ScrollViewer DockPanel.Dock="Left" Width="100" Background="Gray">
+            <Grid>
+                
+            </Grid>
+        </ScrollViewer>
         <Grid DockPanel.Dock="Right">
-            <TextBox x:Name="searchBox" Text="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" TextWrapping="Wrap" Width="120"/>
-            <ComboBox x:Name="sortBox" Text="Sort By" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
-            <ComboBox x:Name="limitBox" Text="Show 50" HorizontalAlignment="left" VerticalAlignment="Top" Margin="400,10,0,0" Width="80" IsEditable="True" IsReadOnly="True"/>
-            <Image x:Name="gamePic" HorizontalAlignment="Left" Height="244" Margin="375,323,0,0" VerticalAlignment="Top" Width="278"/>
-            <Image x:Name="gamePic2" HorizontalAlignment="Left" Height="254" Margin="29,56,0,0" VerticalAlignment="Top" Width="296"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBox x:Name="searchBox" Text="In Collection" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Width="120"/>
+                <ComboBox x:Name="sortBox" Text="Sort By" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="400,0,0,0" Width="100" IsEditable="True" IsReadOnly="True"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <DataGrid x:Name="gameGrid" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" HeadersVisibility="Column" RowHeight="100">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+                            <Setter Property="Padding" Value="20,0,20,0"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding image, Converter={StaticResource ResourceKey=ImageConverter}}" Width="200" Stretch="UniformToFill"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Name" Width="250" Binding="{Binding name}" />
+                        <DataGridTextColumn Header="Released" Width="100" Binding="{Binding released}" />
+                        <DataGridTextColumn Header="Metacritic" Width="100" Binding="{Binding metacritic}" />
+                        <DataGridTextColumn Header="Platforms" Width="*" Binding="{Binding platforms}" />                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
-
     </DockPanel>
 </Window>

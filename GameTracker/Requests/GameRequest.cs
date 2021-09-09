@@ -19,9 +19,9 @@ namespace GameTracker.Requests
         /// </summary>
         public GameRequest()
         {
-            APIKEY = util.GetKey();
-            MessageBox.Show(GetGameInfo("kingdom-hearts-iii").ToString());
-            MessageBox.Show(GetGameSeries("kingdom-hearts-iii").results[1].ToString());
+            APIKEY = util.APIKEY;
+            //MessageBox.Show(GetGameInfo("kingdom-hearts-iii").ToString());
+            //MessageBox.Show(GetGameSeries("kingdom-hearts-iii").results[1].ToString());
         }
 
         /// <summary>

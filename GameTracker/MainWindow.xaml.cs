@@ -1,9 +1,11 @@
 ﻿using GameTracker.Classes;
+using GameTracker.Models;
 using GameTracker.Requests;
-using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace GameTracker
 {
@@ -14,25 +16,51 @@ namespace GameTracker
     {
         public MainWindow()
         {
-            InitializeComponent();
-            PlatformRequest pReq = new PlatformRequest();
-            GenreRequest gReq = new GenreRequest();
-            GameRequest gameRequest = new GameRequest();
-            string site = gameRequest.GetGameInfo("kingdom-hearts-iii").background_image;
+            InitializeComponent();            
+            DisplayGameList();
 
-            //Get pictures of a game.
-            Platform platform = pReq.GetPlatformDetails(9);
-            MessageBox.Show(platform.ToString());
-            if (platform.image != null)
+            //PlatformRequest pReq = new PlatformRequest();
+            //GenreRequest gReq = new GenreRequest();
+        }
+
+        /// <summary>
+        /// Method responsible for getting a list of games the user currently has in their collection.
+        /// </summary>
+        public void DisplayGameList()
+        {
+            GameRequest gameRequest = new GameRequest();
+
+            List<GameModel> gameModels = new List<GameModel>();
+            List<string> gameList = new List<string>();
+            gameList.Add("kingdom-hearts-iii");
+            gameList.Add("super-mario-galaxy");
+
+            for (int i = 0; i < gameList.Count; i++)
             {
-                Uri uri = new Uri(platform.image, UriKind.Absolute);
-                ImageSource imgSource = new BitmapImage(uri);
-                gamePic.Source = imgSource;
+                // Get the game information.
+                Game game = gameRequest.GetGameInfo(gameList[i]);
+
+                // Get the image from the site.
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData(game.background_image);
+                MemoryStream ms = new MemoryStream(bytes);
+                Image gameImage = Image.FromStream(ms);
+
+                // Get list of platforms the game is on.
+                string platforms = "";
+                for (int j = 0; j < game.platforms.Length; j++)
+                {
+                    if (j != 0)
+                        platforms += ", ";
+                    platforms += game.platforms[j].platform.name;
+                }
+
+                // Create model after the game and add to list.
+                GameModel model = new GameModel(gameImage, game.name, game.released, platforms, game.metacritic + "");
+                gameModels.Add(model);
             }
 
-            Uri uri2 = new Uri(platform.image_background, UriKind.Absolute);
-            ImageSource imgSource2 = new BitmapImage(uri2);
-            gamePic2.Source = imgSource2;
+            gameGrid.ItemsSource = gameModels;
         }
     }
 }

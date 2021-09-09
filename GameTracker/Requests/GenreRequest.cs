@@ -20,7 +20,7 @@ namespace GameTracker.Requests
         /// </summary>
         public GenreRequest()
         {
-            APIKEY = util.GetKey();
+            APIKEY = util.APIKEY;
             MessageBox.Show(GetAllGenres()[1].ToString());
         }
 

@@ -44,3 +44,4 @@ C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.pdb
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.genruntimeconfig.cache
 C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GameTracker.csproj.AssemblyReference.cache
+C:\Users\shado\Documents\GitHub\GameTracker\GameTracker\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
