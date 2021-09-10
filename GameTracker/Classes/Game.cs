@@ -11,6 +11,7 @@ namespace GameTracker.Classes
         [JsonProperty]
         private int id { set; get; }
         public string name { set; get; }
+        public string slug { set; get; }
         public string description { set; get; }
         public int? metacritic { set; get; }
         public string released { set; get; }
@@ -26,6 +27,7 @@ namespace GameTracker.Classes
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
+        /// <param name="slug"></param>
         /// <param name="description"></param>
         /// <param name="metacritic"></param>
         /// <param name="released"></param>
@@ -35,11 +37,12 @@ namespace GameTracker.Classes
         /// <param name="alternative_names"></param>
         /// <param name="platforms"></param>
         /// <param name="genres"></param>
-        public Game(int id, string name, string description, int? metacritic, string released, string background_image, 
+        public Game(int id, string name, string slug, string description, int? metacritic, string released, string background_image, 
             string background_image_additional, string website, string[] alternative_names, GamePlatform[] platforms, Genre[] genres)
         {
             this.id = id;
             this.name = name;
+            this.slug = slug;
             this.description = description;
             this.metacritic = metacritic;
             this.released = released;
@@ -57,7 +60,7 @@ namespace GameTracker.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return id + " " + name + " " + description + " \n" + metacritic + " " + released + " " + background_image + " \n" + website + " "
+            return id + " " + name + " " + slug + " " + description + " \n" + metacritic + " " + released + " " + background_image + " \n" + website + " "
                 + alternative_names + " \n" + platforms[0] + " \n" + genres[0];
         }
     }

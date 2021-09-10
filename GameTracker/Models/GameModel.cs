@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace GameTracker.Models
 {
@@ -7,7 +8,7 @@ namespace GameTracker.Models
     /// </summary>
     class GameModel
     {
-        public Image image {  get; set; }
+        public BitmapImage image {  get; set; }
         public string name {  get; set; }
         public string released { get; set; }
         public string platforms {  get; set; }
@@ -21,7 +22,7 @@ namespace GameTracker.Models
         /// <param name="released"></param>
         /// <param name="platforms"></param>
         /// <param name="metacritic"></param>
-        public GameModel(Image image, string name, string released, string platforms, string metacritic)
+        public GameModel(BitmapImage image, string name, string released, string platforms, string metacritic)
         {
             this.image = image;
             this.name = name;

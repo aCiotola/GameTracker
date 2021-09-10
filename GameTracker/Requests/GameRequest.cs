@@ -2,7 +2,6 @@
 using GameTracker.Utilities;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Windows;
 
 namespace GameTracker.Requests
 {
@@ -20,8 +19,6 @@ namespace GameTracker.Requests
         public GameRequest()
         {
             APIKEY = util.APIKEY;
-            //MessageBox.Show(GetGameInfo("kingdom-hearts-iii").ToString());
-            //MessageBox.Show(GetGameSeries("kingdom-hearts-iii").results[1].ToString());
         }
 
         /// <summary>
